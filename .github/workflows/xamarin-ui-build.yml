@@ -60,7 +60,7 @@ jobs:
     - name: Sign APK
       run: /usr/lib/android-sdk/build-tools/30.0.3/apksigner sign --ks zg.keystore --ks-pass pass:'${{ secrets.APK_KEYSTORE_PASSWORD }}' --ks-key-alias zg_key_store Smartway.UiComponent.Sample.Android/bin/Release/xamarin-ui-sample.apk
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Xamarin-UI-${{ inputs.app-version }}
         path: Smartway.UiComponent.Sample.Android/bin/Release/xamarin-ui-sample.apk
