@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Input;
-using Smartway.Barcode.Ean13;
 using Smartway.UiComponent.Behaviors;
 using Xamarin.Forms;
 
@@ -21,6 +21,7 @@ namespace Smartway.UiComponent.Inputs.Barcode
             base.OnAttachedTo(bindable);
 
             AssociatedObject.Focused += OnAssociatedObjectOnFocused;
+            AssociatedObject.Completed += Completed;
             AssociatedObject.TextChanged += OnTextChanged;
         }
 
@@ -29,6 +30,7 @@ namespace Smartway.UiComponent.Inputs.Barcode
             base.OnDetachingFrom(bindable);
 
             AssociatedObject.Focused -= OnAssociatedObjectOnFocused;
+            AssociatedObject.Completed -= Completed;
             AssociatedObject.TextChanged -= OnTextChanged;
         }
 
@@ -45,27 +47,18 @@ namespace Smartway.UiComponent.Inputs.Barcode
             if (InputIsInvalid(e.NewTextValue))
             {
                 AssociatedObject.Text = e.OldTextValue;
-                return;
             }
-
-            if (e.NewTextValue.Length != Ean13.CheckedLength)
-                return;
-
-            if (Command == null || !Command.CanExecute(null))
-                return;
-
-            Command.Execute(e.NewTextValue);
         }
 
         private bool InputIsInvalid(string input)
         {
-            if (input.Length > Ean13.CheckedLength)
-                return true;
-
-            if (input.Length == Ean13.CheckedLength && !Ean13.Check(input))
-                return true;
-
             return input.ToCharArray().Any(_ => !char.IsDigit(_));
+        }
+
+        private void Completed(object sender, EventArgs e)
+        {
+            var entry = (Entry)sender;
+            Command.Execute(entry.Text);
         }
     }
 }
