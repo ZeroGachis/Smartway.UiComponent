@@ -70,7 +70,7 @@
                         Focused="InputOnFocused"
                         IsPassword="{Binding Source={x:Reference Self}, Path=IsPassword}"
                         Unfocused="InputOnUnfocused"
-                        >
+                        AutomationId="{Binding Source={x:Reference Self}, Path=AutomationId, StringFormat='{0}_Input'}">
                         <Entry.Triggers>
                             <DataTrigger TargetType="Entry" Binding="{Binding Source={x:Reference Self}, Path=ReadOnly}" Value="True">
                                 <Setter Property="IsReadOnly" Value="True"/>

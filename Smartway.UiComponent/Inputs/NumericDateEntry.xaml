@@ -24,9 +24,9 @@
             </Style>
         </ResourceDictionary>
     </StackLayout.Resources>
-    <Entry x:Name="FirstEntry" Grid.Column="0" Focused="OnFocusedSelectAllEntryContent"/>
+    <Entry x:Name="FirstEntry" Grid.Column="0" Focused="OnFocusedSelectAllEntryContent" AutomationId="{Binding Source={x:Reference Self}, Path=AutomationId, StringFormat='{0}_Day'}"/>
     <Label Grid.Column="1" Text="/"/>
-    <Entry x:Name="SecondEntry" Grid.Column="2" Focused="OnFocusedSelectAllEntryContent"/>
+    <Entry x:Name="SecondEntry" Grid.Column="2" Focused="OnFocusedSelectAllEntryContent" AutomationId="{Binding Source={x:Reference Self}, Path=AutomationId, StringFormat='{0}_Month'}"/>
     <Label Grid.Column="3" Text="/"/>
-    <Entry x:Name="ThirdEntry" Grid.Column="4" Focused="OnFocusedSelectAllEntryContent"/>
+    <Entry x:Name="ThirdEntry" Grid.Column="4" Focused="OnFocusedSelectAllEntryContent" AutomationId="{Binding Source={x:Reference Self}, Path=AutomationId, StringFormat='{0}_Year'}"/>
 </StackLayout>
