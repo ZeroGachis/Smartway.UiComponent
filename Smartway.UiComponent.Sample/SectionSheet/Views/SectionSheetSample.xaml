@@ -109,10 +109,6 @@
                     <Label Text="Normal Size" />
                     <cardLists:ArticleCardList ArticlesList="{Binding Articles}" />
                 </layouts:SectionSheet>
-                <layouts:SectionSheet>
-                    <Label Text="Condensed Size" />
-                    <cardLists:ArticleCardList ArticlesList="{Binding Articles}" IsCondensed="True" /> 
-                </layouts:SectionSheet>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

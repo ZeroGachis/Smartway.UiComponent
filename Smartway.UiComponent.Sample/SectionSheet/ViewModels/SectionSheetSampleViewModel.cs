@@ -15,8 +15,7 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 1",
-                IsMultilocation = false,
-                IsOnShortage = false
+                IsMultilocation = false
             },
             new DummyArticle
             {
@@ -24,8 +23,7 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 2",
-                IsMultilocation = true,
-                IsOnShortage = false
+                IsMultilocation = true
             },
             new DummyArticle
             {
@@ -33,7 +31,6 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 3",
-                IsOnShortage = false,
                 IsMultilocation = false
             },
             new DummyArticle
@@ -42,8 +39,6 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 4",
-                Status = "Monitored",
-                IsOnShortage = false,
                 IsMultilocation = false
             },
             new DummyArticle
@@ -52,9 +47,7 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 5",
-                Status = "Unmonitored",
-                IsMultilocation = true,
-                IsOnShortage = false
+                IsMultilocation = true
             },
         };
 
