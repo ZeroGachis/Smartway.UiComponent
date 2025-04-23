@@ -7,11 +7,35 @@
              xmlns:cards="clr-namespace:Smartway.UiComponent.Cards;assembly=Smartway.UiComponent"
              x:Class="Smartway.UiComponent.Sample.SectionSheet.Views.SectionSheetSample"
              x:DataType="viewModels:SectionSheetSampleViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="OpenSans"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <layouts:SectionSheet>
                     <Label Text="Product Card" />
+                    <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       Time="02:55"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
+                    <cards:ProductCard Label="Cuisse de Dinde with a long name to trigger three dots"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
+                    <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       IsMultilocation="True"
+                                       Time="02:55"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
                     <cards:ProductCard Label="Cuisse de Dinde"
                                        Gencode="3421375509306"
                                        InitialPrice="2€25"
@@ -22,9 +46,35 @@
                                        Gencode="3421375509306"
                                        InitialPrice="2€25"
                                        IsMultilocation="True"
+                                       Quantity="6"
                                        Time="02:55"
                                        ClickCommand="{Binding DisplayToastCommand}"/>
                     <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       Quantity="99"
+                                       Time="02:55"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
+                    <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       Quantity="99"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
+                    <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       Quantity="99"
+                                       Time="02:55"
+                                       ClickCommand="{Binding DisplayToastCommand}">
+                        <cards:ProductCard.Details>
+                            <ContentView>
+                                <Label Text="13/04/2025"
+                                    Style="{StaticResource BaseLabel}"
+                                    AutomationId="ProductCardDetails"></Label>
+                            </ContentView>
+                        </cards:ProductCard.Details>
+                    </cards:ProductCard>
+                    <cards:ProductCard Label="Cuisse de Dinde with a very long name to trigger line break"
                                        Gencode="3421375509306"
                                        InitialPrice="2€25"
                                        IsMultilocation="True"
@@ -37,6 +87,14 @@
                                        Quantity="6"
                                        Time="02:55"
                                        IsEnabled="False"
+                                       ClickCommand="{Binding DisplayToastCommand}"/>
+                    <cards:ProductCard Label="Cuisse de Dinde"
+                                       Gencode="3421375509306"
+                                       InitialPrice="2€25"
+                                       Quantity="6"
+                                       Time="02:55"
+                                       IsEnabled="False"
+                                       IsMultilocation="True"
                                        ClickCommand="{Binding DisplayToastCommand}"/>
                     <cards:ProductCard Label="Cuisse de Dinde"
                                        Gencode="3421375509306"

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -11,45 +12,49 @@ namespace Smartway.UiComponent.Sample.SectionSheet.ViewModels
             new DummyArticle
             {
                 Label = "Article 1",
-                IsMultilocation = true,
-                IsOnShortage = true,
                 Price = "0,3€",
                 Gencode = "1234567891234",
-                NavigationParameter = "Article 1"
-            }, new DummyArticle
+                NavigationParameter = "Article 1",
+                IsMultilocation = false,
+                IsOnShortage = false
+            },
+            new DummyArticle
             {
                 Label = "Article 2",
-                IsMultilocation = false,
-                IsOnShortage = false,
-                Price = "12.39€",
-                Gencode = "1234567891234",
-                NavigationParameter = "Article 2",
-                Status = "Monitored"
-            }, new DummyArticle
-            {
-                Label = "Article 3",
-                IsMultilocation = false,
-                IsOnShortage = true,
                 Price = "0,3€",
                 Gencode = "1234567891234",
-                NavigationParameter = "Article 3"
-            }, new DummyArticle
+                NavigationParameter = "Article 2",
+                IsMultilocation = true,
+                IsOnShortage = false
+            },
+            new DummyArticle
+            {
+                Label = "Article 3",
+                Price = "0,3€",
+                Gencode = "1234567891234",
+                NavigationParameter = "Article 3",
+                IsOnShortage = false,
+                IsMultilocation = false
+            },
+            new DummyArticle
             {
                 Label = "Article 4",
-                IsMultilocation = true,
-                IsOnShortage = false,
                 Price = "0,3€",
                 Gencode = "1234567891234",
                 NavigationParameter = "Article 4",
-                Status = "Unmonitored"
-            }, new DummyArticle
+                Status = "Monitored",
+                IsOnShortage = false,
+                IsMultilocation = false
+            },
+            new DummyArticle
             {
                 Label = "Article 5",
-                IsMultilocation = true,
-                IsOnShortage = false,
                 Price = "0,3€",
                 Gencode = "1234567891234",
-                NavigationParameter = "Article 5"
+                NavigationParameter = "Article 5",
+                Status = "Unmonitored",
+                IsMultilocation = true,
+                IsOnShortage = false
             },
         };
 
