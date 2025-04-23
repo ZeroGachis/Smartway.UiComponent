@@ -17,6 +17,7 @@
                         <Setter Property="FontSize" Value="16"/>
                         <Setter Property="LineBreakMode" Value="TailTruncation" />
                         <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="MaxLines" Value="2" />
                     </Style>
                     <Style x:Key="MultiLocationIcon" TargetType="Image">
                         <Setter Property="WidthRequest" Value="20"/>
@@ -31,61 +32,34 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        <converters:NullToBooleanConverter x:Key="FalseIfNull" />
     </ContentView.Resources>
     <ContentView.Content>
         <StackLayout Margin="0, 0, 0, 20"  Orientation="Vertical">
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer
-                  Command="{Binding Source={Reference Self}, Path=NavigationCommand}"
-                  CommandParameter="{Binding Source={Reference Self}, Path=NavigationParameter}"
-                  NumberOfTapsRequired="1" />
+                    Command="{Binding Source={Reference Self}, Path=NavigationCommand}"
+                    CommandParameter="{Binding Source={Reference Self}, Path=NavigationParameter}"
+                    NumberOfTapsRequired="1" />
             </StackLayout.GestureRecognizers>
             <StackLayout Orientation="Horizontal">
                 <Label Style="{StaticResource ProductLabel}"
-                               Text="{Binding Source={Reference Self}, Path=Label}"
-                               AutomationId="ProductLabel">
-                    <Label.Triggers>
-                        <DataTrigger TargetType="Label" Binding="{Binding Source={Reference Self}, Path=IsCondensed}" Value="false">
-                            <Setter Property="MaxLines" Value="2" />
-                        </DataTrigger>
-                    </Label.Triggers>
-                </Label>
+                    Text="{Binding Source={Reference Self}, Path=Label}"
+                    AutomationId="ProductLabel"/>
                 <Image Style="{StaticResource MultiLocationIcon}"
-                           Source="{utils:ImageResource Source=Smartway.UiComponent.Resources.Images.icon_sdet_multiimplantation.png}"
-                           IsVisible="{Binding Source={Reference Self}, Path=IsMultilocation}"/>
+                    Source="{utils:ImageResource Source=Smartway.UiComponent.Resources.Images.icon_sdet_multiimplantation.png}"
+                    IsVisible="{Binding Source={Reference Self}, Path=IsMultilocation}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand">
-                <Label
-                            x:Name="ProductGencode"
-                            Style="{StaticResource RegularGencodeText}"
-                            Text="{Binding Source={Reference Self}, Path=Gencode}"
-                            AutomationId="ProductGencode"/>
+                <Label x:Name="ProductGencode"
+                    Style="{StaticResource RegularGencodeText}"
+                    Text="{Binding Source={Reference Self}, Path=Gencode}"
+                    AutomationId="ProductGencode"/>
                 <Label Style="{StaticResource RegularGencodeText}" FontSize="13" Text=" · " />
-                <Label
-                            x:Name="ProductPrice"
-                            Style="{StaticResource RegularGencodeText}"
-                            Text="{Binding Source={Reference Self}, Path=Price}"
-                            AutomationId="ProductPrice"/>
+                <Label x:Name="ProductPrice"
+                    Style="{StaticResource RegularGencodeText}"
+                    Text="{Binding Source={Reference Self}, Path=Price}"
+                    AutomationId="ProductPrice"/>
             </StackLayout>
-            <Label
-                        Style="{StaticResource RegularGencodeText}"
-                        TextColor="Black"
-                        Text="{Binding Source={Reference Self}, Path=OnShortageSince, StringFormat='Rupture depuis le {0:dd/MM/yyyy}'}"
-                        IsVisible="{Binding Source={Reference Self}, Path=DisplayOnShortageSince}" />
-            <indicators:Status IsVisible="{Binding Source={Reference Self}, Path=Status, Converter={StaticResource FalseIfNull}}" 
-                                       HorizontalOptions="StartAndExpand">
-                <indicators:Status.Triggers>
-                    <DataTrigger TargetType="indicators:Status" Binding="{Binding Source={Reference Self}, Path=Status}" Value="Monitored">
-                        <Setter Property="Value" Value="Success" />
-                        <Setter Property="Text" Value="{x:Static resources:Resources.Monitor}" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="indicators:Status" Binding="{Binding Source={Reference Self}, Path=Status}" Value="Unmonitored">
-                        <Setter Property="Value" Value="Basic" />
-                        <Setter Property="Text" Value="{x:Static resources:Resources.Unmonitor}" />
-                    </DataTrigger>
-                </indicators:Status.Triggers>
-            </indicators:Status>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

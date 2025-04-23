@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using Smartway.UiComponent.Cards;
 
 namespace Smartway.UiComponent.Sample.ExpanderCard.ViewModels
 {
@@ -14,7 +13,6 @@ namespace Smartway.UiComponent.Sample.ExpanderCard.ViewModels
                 {
                     Label = "Article "+i,
                     IsMultilocation = true,
-                    IsOnShortage = true,
                     Price = "0,3€",
                     Gencode = "1234567891234",
                     NavigationParameter = "Article 5"

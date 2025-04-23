@@ -11,24 +11,14 @@ namespace Smartway.UiComponent.Cards
         public static readonly BindableProperty IsMultilocationProperty = BindableProperty.Create(nameof(IsMultilocation), typeof(bool), typeof(ArticleCard), false);
         public static readonly BindableProperty LabelProperty = BindableProperty.Create(nameof(Label), typeof(string), typeof(ArticleCard));
         public static readonly BindableProperty GencodeProperty = BindableProperty.Create(nameof(Gencode), typeof(string), typeof(ArticleCard));
-        public static readonly BindableProperty IsOnShortageProperty = BindableProperty.Create(nameof(IsOnShortage), typeof(bool), typeof(ArticleCard), false);
         public static readonly BindableProperty PriceProperty = BindableProperty.Create(nameof(Price), typeof(string), typeof(ArticleCard));
         public static readonly BindableProperty NavigationCommandProperty = BindableProperty.Create(nameof(NavigationCommand), typeof(ICommand), typeof(ArticleCard));
         public static readonly BindableProperty NavigationParameterProperty = BindableProperty.Create(nameof(NavigationParameter), typeof(object), typeof(ArticleCard));
-        public static readonly BindableProperty OnShortageSinceProperty = BindableProperty.Create(nameof(OnShortageSince), typeof(DateTime?), typeof(ArticleCard), DateTime.Today);
-        public static readonly BindableProperty StatusProperty = BindableProperty.Create(nameof(Status), typeof(string), typeof(ArticleCard));
-        public static readonly BindableProperty IsCondensedProperty = BindableProperty.Create(nameof(IsCondensed), typeof(bool), typeof(ArticleCard), false);
 
         public bool IsMultilocation
         {
             get => (bool) GetValue(IsMultilocationProperty);
             set => SetValue(IsMultilocationProperty, value);
-        }
-
-        public bool IsCondensed
-        {
-            get => (bool)GetValue(IsCondensedProperty);
-            set => SetValue(IsCondensedProperty, value);
         }
 
         public string Label
@@ -41,18 +31,6 @@ namespace Smartway.UiComponent.Cards
         {
             get => (string) GetValue(GencodeProperty);
             set => SetValue(GencodeProperty, value);
-        }
-
-        public bool IsOnShortage
-        {
-            get => (bool) GetValue(IsOnShortageProperty);
-            set => SetValue(IsOnShortageProperty, value);
-        }
-
-        public DateTime? OnShortageSince
-        {
-            get => (DateTime?) GetValue(OnShortageSinceProperty);
-            set => SetValue(OnShortageSinceProperty, value);
         }
 
         public string Price
@@ -72,14 +50,6 @@ namespace Smartway.UiComponent.Cards
             get => (object) GetValue(NavigationParameterProperty);
             set => SetValue(NavigationParameterProperty, value);
         }
-
-        public string Status
-        {
-            get => (string)GetValue(StatusProperty);
-            set => SetValue(StatusProperty, value);
-        }
-
-        public bool DisplayOnShortageSince => IsOnShortage && OnShortageSince != null;
 
         public ArticleCard()
         {

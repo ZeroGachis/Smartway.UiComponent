@@ -8,8 +8,6 @@ namespace Smartway.UiComponent.Sample
     {
         public string Label { get; set; }
         public bool IsMultilocation { get; set; }
-
-        public bool IsOnShortage { get; set; }
         public string Price { get; set; }
         public string Gencode { get; set; }
         public ICommand NavigationCommand
@@ -24,11 +22,5 @@ namespace Smartway.UiComponent.Sample
         }
 
         public object NavigationParameter { get; set; }
-        public string Status { get; set; }
-        public DateTime? OnShortageSince
-        {
-            get => DateTime.Today;
-            set => throw new NotImplementedException();
-        }
     }
 }
