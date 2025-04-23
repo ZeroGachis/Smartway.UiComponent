@@ -11,9 +11,3 @@ jobs:
       app-version: 1.0.${{ github.event.pull_request.number }}.${{ github.run_number }}
       configuration: Release
     secrets: inherit  
-
-  notify:
-    if: ${{ success() }}
-    needs: build
-    uses: ./.github/workflows/xamarin-ui-notify.yml
-    secrets: inherit
