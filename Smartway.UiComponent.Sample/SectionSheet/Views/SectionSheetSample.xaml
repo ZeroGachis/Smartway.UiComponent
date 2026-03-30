@@ -79,6 +79,7 @@
                                        InitialPrice="2€25"
                                        IsMultilocation="True"
                                        Quantity="6"
+                                       ShopCode="123456"
                                        Time="02:55"
                                        ClickCommand="{Binding DisplayToastCommand}"/>
                     <cards:ProductCard Label="Cuisse de Dinde"

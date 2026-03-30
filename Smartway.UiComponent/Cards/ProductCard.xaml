@@ -85,8 +85,12 @@
                Source="{utils:ImageResource Source=Smartway.UiComponent.Resources.Images.icon_sdet_multiimplantation.png}"
                IsVisible="{Binding Source={Reference Self}, Path=IsMultilocation}"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Style="{StaticResource GencodePriceLabel}" Margin="3, 0" AutomationId="ProductCardGencodePrice">
+        <StackLayout Orientation="Horizontal" Spacing="3">
+            <Label Style="{StaticResource GencodePriceLabel}"
+                   IsVisible="{Binding ShopCode, Source={x:Reference Self}, Converter={StaticResource IsNotNullOrEmptyConverter}}"
+                   Text="{Binding ShopCode, Source={x:Reference Self}, StringFormat='{0} •'}"
+                   AutomationId="ProductCardShopCode"/>
+            <Label Style="{StaticResource GencodePriceLabel}" AutomationId="ProductCardGencodePrice">
                 <Label.Text>
                     <MultiBinding StringFormat="{}{0} • {1}">
                         <Binding Path="Gencode" Source="{x:Reference Self}"/>

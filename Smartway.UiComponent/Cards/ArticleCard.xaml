@@ -5,6 +5,7 @@
              xmlns:resources="clr-namespace:Smartway.UiComponent.Resources;assembly=Smartway.UiComponent"
              xmlns:utils="clr-namespace:Smartway.UiComponent.Utils;assembly=Smartway.UiComponent"
              xmlns:converters="clr-namespace:Smartway.Mvvm.Converters;assembly=Smartway.Mvvm"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Smartway.UiComponent.Cards.ArticleCard"
              x:Name="Self">
     <ContentView.Resources>
@@ -29,6 +30,7 @@
                         <Setter Property="FontAttributes" Value="None"/>
                         <Setter Property="TextColor" Value="{StaticResource ZgNightGrey}"/>
                     </Style>
+                    <xct:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter"/>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -50,6 +52,12 @@
                     IsVisible="{Binding Source={Reference Self}, Path=IsMultilocation}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand">
+                <Label Style="{StaticResource RegularGencodeText}"
+                    IsVisible="{Binding Source={Reference Self}, Path=ShopCode, Converter={StaticResource IsNotNullOrEmptyConverter}}"
+                    Text="{Binding Source={Reference Self}, Path=ShopCode}"
+                    AutomationId="ProductShopCode"/>
+                <Label Style="{StaticResource RegularGencodeText}" FontSize="13" Text=" · "
+                    IsVisible="{Binding Source={Reference Self}, Path=ShopCode, Converter={StaticResource IsNotNullOrEmptyConverter}}"/>
                 <Label x:Name="ProductGencode"
                     Style="{StaticResource RegularGencodeText}"
                     Text="{Binding Source={Reference Self}, Path=Gencode}"
