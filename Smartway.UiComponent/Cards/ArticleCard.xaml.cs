@@ -14,6 +14,7 @@ namespace Smartway.UiComponent.Cards
         public static readonly BindableProperty PriceProperty = BindableProperty.Create(nameof(Price), typeof(string), typeof(ArticleCard));
         public static readonly BindableProperty NavigationCommandProperty = BindableProperty.Create(nameof(NavigationCommand), typeof(ICommand), typeof(ArticleCard));
         public static readonly BindableProperty NavigationParameterProperty = BindableProperty.Create(nameof(NavigationParameter), typeof(object), typeof(ArticleCard));
+        public static readonly BindableProperty ShopCodeProperty = BindableProperty.Create(nameof(ShopCode), typeof(string), typeof(ArticleCard));
 
         public bool IsMultilocation
         {
@@ -49,6 +50,12 @@ namespace Smartway.UiComponent.Cards
         {
             get => (object) GetValue(NavigationParameterProperty);
             set => SetValue(NavigationParameterProperty, value);
+        }
+
+        public string ShopCode
+        {
+            get => (string)GetValue(ShopCodeProperty);
+            set => SetValue(ShopCodeProperty, value);
         }
 
         public ArticleCard()
