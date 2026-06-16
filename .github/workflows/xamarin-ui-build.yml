@@ -16,7 +16,7 @@ jobs:
     runs-on: [self-hosted, xamarin-android]
     steps:
     - name: Clean Workspace
-      uses: mickem/clean-after-action@v1
+      uses: mickem/clean-after-action@v2
     - name: Checkout
       uses: actions/checkout@v3
     - name: Configure AWS Credentials
